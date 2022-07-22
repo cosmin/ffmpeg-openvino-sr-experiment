@@ -1,0 +1,12 @@
+diff --git a/configure b/configure
+--- a/configure
++++ b/configure
+@@ -6600,7 +6601,7 @@
+ enabled libopenjpeg       && { check_pkg_config libopenjpeg "libopenjp2 >= 2.1.0" openjpeg.h opj_version ||
+                                { require_pkg_config libopenjpeg "libopenjp2 >= 2.1.0" openjpeg.h opj_version -DOPJ_STATIC && add_cppflags -DOPJ_STATIC; } }
+ enabled libopenmpt        && require_pkg_config libopenmpt "libopenmpt >= 0.2.6557" libopenmpt/libopenmpt.h openmpt_module_create -lstdc++ && append libopenmpt_extralibs "-lstdc++"
+-enabled libopenvino       && require libopenvino c_api/ie_c_api.h ie_c_api_version -linference_engine_c_api
++enabled libopenvino       && require libopenvino c_api/ie_c_api.h ie_c_api_version "-lopenvino_c -lopenvino"
+ enabled libopus           && {
+     enabled libopus_decoder && {
+         require_pkg_config libopus opus opus_multistream.h opus_multistream_decoder_create
